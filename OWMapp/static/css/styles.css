@@ -1,0 +1,74 @@
+/*
+Created April 23, 2017
+Author: Gabriela Carrillo
+*/
+
+
+
+body {
+    background-color: #dbdee0;
+}
+
+#home-header {
+    text-align: center;
+    color: #104aa8;
+    font-family: helvetica;
+    font-size: 15px;
+}
+
+#home-header h2 {
+  font-weight: bold;
+  font-size: 45px;
+}
+
+#home-buttons {
+    text-align: center
+}
+
+#home-caption {
+    text-align: center;
+    color: #104aa8;
+    font-family: helvetica;
+}
+
+.user-welcome {
+    font-weight: bold;
+}
+
+h2 {
+    text-align: center;
+    color: #104aa8;
+    font-family: helvetica;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.search-instructions{
+    text-align: center;
+    color: black;
+    font-family: helvetica;
+    font-size: 16px;
+}
+
+.search-engine{
+    text-align: center;
+    color: black;
+    font-family: helvetica;
+}
+
+.feedback{
+    text-align: center;
+    color: #104aa8;
+    font-family: helvetica;
+    font-size: 18px;
+}
+
+#create-account{
+    text-align: center;
+    font-family: helvetica;
+}
+
+#create-account{
+    text-align: left;
+    font-family: helvetica;
+}

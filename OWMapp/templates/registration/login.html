@@ -1,0 +1,45 @@
+<!--
+
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 20 14:26:44 2017
+
+@author: Allison Kaufman and Gabriela Carrillo
+"""
+
+-->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<center><body>
+
+  {% block content %}
+    <h2>Login</h2>
+    <br><form method="post">
+
+      {% csrf_token %}
+      {{ form.as_p }}
+
+      <button type="submit">Login</button>
+
+    </form>
+
+    <form action="http://localhost:8000/OWMapp/">
+      <input type="submit" value="Return to Homepage" />
+    </form>
+
+    <form action="http://localhost:8000/OWMapp/register/">
+      <input type="submit" value="Don't have an account? Sign up here!" />
+    </form>
+
+
+    <br>
+    <p><strong>-- OR --</strong></p>
+
+    <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+
+  {% endblock %}
+</body></center>

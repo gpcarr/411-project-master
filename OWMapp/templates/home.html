@@ -1,0 +1,62 @@
+<!--
+
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 20 14:13:53 2017
+
+@author: Allison Kaufman and Gabriela Carrillo
+"""
+
+
+-->
+
+
+{% block content %}
+<body>
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<div id="home-header">
+  <b> <h2>Welcome to TravelEasy!</h2> </b>
+  {% load static %}
+  <center><img src="{% static "images/travelhome_files/image001.png" %}" alt="travel" height="200" width="350" /></center>
+  <span id="home-caption">Search for any desired destination and find local weather and places to visit there!</span>
+</div>
+
+<div id="home-buttons">
+  <br>
+  {% if user.username %}
+    <p class="user-welcome">Hello {{ user.username }}!</p>
+  {% endif %}
+  <br>
+  <form action="http://localhost:8000/OWMapp/weather/">
+    <input type="submit" value="Find Weather Conditions" />
+  </form>
+
+  <form action="http://localhost:8000/OWMapp/activities/">
+    <input type="submit" value="Find Places to Visit" />
+  </form>
+
+  {% if not user.username %}
+  <form action="http://localhost:8000/OWMapp/register/">
+    <input type="submit" value="Create an Account" />
+  </form>
+
+  <form action="http://localhost:8000/OWMapp/login/">
+    <input type="submit" value="Login To The Site" />
+  </form>
+  {% endif %}
+
+  {% if user.username %}
+    <form action="http://localhost:8000/OWMapp/logout/">
+      <input type="submit" value="Log out of the Site" />
+    </form>
+  {% endif %}
+</div>
+
+</body>
+{% endblock %}

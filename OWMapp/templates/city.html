@@ -1,0 +1,26 @@
+<!--
+
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Mar 23 09:47:29 2017
+
+@author: Allison Kaufman
+"""
+
+-->
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<body>
+
+	<form action="." method="POST">{% csrf_token %}
+
+		<input type="text", name="search-term">
+		<input type="submit" name="search-form" value="Search">
+
+	</form>
+</body>

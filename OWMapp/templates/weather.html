@@ -1,0 +1,55 @@
+<!--
+
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Mar 23 09:47:29 2017
+
+@author: Allison Kaufman and Gabriela Carrillo
+"""
+
+-->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<body>
+     <h2>Search Weather Conditions</h2>
+
+     <div class="search-instructions">
+        <p>Enter a location: </p>
+     </div>
+
+     <div class="search-engine">
+        <form action="." method="POST">{% csrf_token %}
+
+            <input type="text", name="search-term">
+            <input type="submit" name="search-form" value="Search">
+
+        </form>
+
+        <form action="http://localhost:8000/OWMapp/">
+            <input type="submit" value="Return to Homepage" />
+        </form>
+     </div>
+
+    <div class="feedback">
+         <tbody>
+
+                  {% for key in data %}
+                      <tr>
+                          <td>The weather status is: {{ key.status }}</td>
+                          <br />
+                          <td>The humidity percentage is: {{ key.humidity }}%</td>
+                          <br />
+                          <td>The current temperature is: {{ key.temperature }} degrees</td>
+                          <br />
+                          <td>{{ key.wind_speed }}</td>
+                      </tr>
+                  {% endfor %}
+
+
+        </tbody>
+        </div>
+</body>

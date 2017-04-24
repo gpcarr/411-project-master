@@ -1,0 +1,53 @@
+<!--
+
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Apr 21 16:18:23 2017
+
+@author: Allison Kaufman and Gabriela Carrillo
+"""
+
+-->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+<body>
+
+  {% block content %}
+
+    <h2>Sign up</h2>
+
+    <div id="create-account">
+      <div id="create-account-child">
+        <form method="post">
+
+          {% csrf_token %}
+          {% for field in form %}
+
+            <p>
+              {{ field.label_tag }}<br>
+              {{ field }}
+              {% if field.help_text %}
+                <small style="color: grey">{{ field.help_text }}</small>
+              {% endif %}
+              {% for error in field.errors %}
+                <p style="color: red">{{ error }}</p>
+              {% endfor %}
+            </p>
+
+          {% endfor %}
+
+          <button type="submit">Sign up</button>
+
+        </form>
+
+        <form action="http://localhost:8000/OWMapp/">
+          <input type="submit" value="Return to the Homepage" />
+        </form>
+      </div>
+    </div>
+  {% endblock %}
+</body>

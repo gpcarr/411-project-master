@@ -1,0 +1,74 @@
+<!--
+
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Apr 20 22:58:08 2017
+
+@author: Allison Kaufman and Gabriela Carrillo
+"""
+
+-->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+<body>
+
+     <h2>Search for Places to Visit</h2>
+     <p class="search-instructions">Enter a location: </p>
+
+    <div class="search-engine">
+         <form action="." method="POST">{% csrf_token %}
+
+            <input type="text", name="search-term">
+            <input type="submit" name="search-form" value="Search">
+
+        </form>
+
+        <form action="http://localhost:8000/OWMapp/">
+            <input type="submit" value="Return to Homepage" />
+        </form>
+    </div>
+    <div class="feedback">
+        <tbody>
+
+                  {% for key in data %}
+                    <tr>
+                        <td>{{ key.0 }}</td>
+                        <br />
+                        <td>{{ key.1 }}</td>
+                        <br />
+                        <td>{{ key.2 }}</td>
+                        <br />
+                        <td>{{ key.3 }}</td>
+                        <br />
+                        <td>{{ key.4 }}</td>
+                        <br />
+                        <td>{{ key.5 }}</td>
+                        <br />
+                        <td>{{ key.6 }}</td>
+                        <br />
+                        <td>{{ key.7 }}</td>
+                        <br />
+                        <td>{{ key.8 }}</td>
+                        <br />
+                        <td>{{ key.9 }}</td>
+                        <br />
+                        <td>{{ key.10 }}</td>
+                        <br />
+                        <td>{{ key.11 }}</td>
+                        <br />
+                        <td>{{ key.12 }}</td>
+                        <br />
+                        <td>{{ key.13 }}</td>
+                        <br />
+                        <td>{{ key.14 }}</td>
+                        <br />
+                        <td>{{ key.15 }}</td>
+                    <tr>
+                  {% endfor %}
+
+        </tbody>
+    </div>
+</body>
