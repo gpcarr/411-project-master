@@ -52,7 +52,7 @@ def activities(request):
     conn = sqlite3.connect('db.sqlite3')
     cur = conn.cursor()
 
-    cur.execute('DROP TABLE IF EXISTS Urls ')
+    #cur.execute('DROP TABLE IF EXISTS Urls ')
 
     cur.execute(
         'CREATE TABLE IF NOT EXISTS Weather (city TEXT, status TEXT, humidity INTEGER, temperature INTEGER, wind INTEGER, date TEXT)')
